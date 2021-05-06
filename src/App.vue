@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Navbar />
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
@@ -11,8 +12,12 @@
 <script>
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Navbar from "./components/Narbar";
 export default {
   name: "App",
+  components: {
+    Navbar,
+  },
 };
 </script>
 

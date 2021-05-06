@@ -1,0 +1,16 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+a {
+  text-decoration: none; /* 拿掉底線 */
+}
+
+ul,
+li {
+  list-style-type: none; /* 拿掉前方圈圈 */
+  margin: 0;
+  padding: 0;
+}
