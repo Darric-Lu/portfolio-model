@@ -1,11 +1,12 @@
 <template>
-  <div id="app">
+  <div id="portfolio">
     <Navbar />
-    <div id="nav">
+    <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
-    </div>
+    </div> -->
     <router-view />
+    <Footer />
   </div>
 </template>
 
@@ -13,34 +14,38 @@
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./components/Narbar";
+import Footer from "./components/Footer";
+
 export default {
   name: "App",
   components: {
     Navbar,
+    Footer,
   },
 };
 </script>
 
 <style lang="scss">
 @import "../src/assets/scss/main.scss";
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+
+#portfolio {
+  // font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: $mainColor;
 }
 
-#nav {
-  padding: 30px;
+// #nav {
+//   padding: 30px;
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+//   a {
+//     font-weight: bold;
+//     color: #2c3e50;
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
+//     &.router-link-exact-active {
+//       color: #42b983;
+//     }
+//   }
+// }
 </style>

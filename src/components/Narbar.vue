@@ -19,7 +19,7 @@
           <router-link to="/">Home</router-link>
         </div>
         <div class="top-item" @click.stop.prevent="closeTop()">
-          <router-link to="/work">Work</router-link>
+          <router-link to="/works">Works</router-link>
         </div>
         <div class="top-item" @click.stop.prevent="closeTop()">
           <router-link to="/about-me">About me</router-link>
@@ -51,23 +51,28 @@
     font-size: 1.6 * $mainFontSize;
     color: $topBarColor;
   }
+
   .top-toggle:checked ~ .top-list {
     transform: scale(1, 1);
   }
+
   .top-toggle:checked ~ .top-list .top-item {
     transition: opacity 0.2s ease-out 0.15s;
     opacity: 1;
   }
+
   .top-list {
     transition: transform 0.3s ease-out;
     transform-origin: top;
     transform: scale(1, 0);
+
     .top-item {
       // font-size: $mainFontSize;
       background-color: $topBarSubBackgroundColor;
       height: 40px;
       line-height: 40px;
       opacity: 0;
+
       a {
         font-size: $mainFontSize;
         color: $topBarColor;
@@ -76,9 +81,11 @@
         &:after {
           @extend %hover-under-line_after;
         }
+
         &:hover::after {
           @extend %hover-under-line_hover-after;
         }
+
         &.router-link-exact-active {
           color: #272727;
           &:after {
@@ -89,6 +96,7 @@
       }
     }
   }
+
   .top-toggle-label {
     position: absolute;
     top: 0;
@@ -98,6 +106,7 @@
     align-items: center;
     margin: 0;
     cursor: pointer;
+
     .hamburger {
       display: flex;
       justify-content: center;
@@ -106,9 +115,11 @@
       width: 3rem;
       border: 4px solid $topBarSubBackgroundColor;
       border-radius: 0.6rem;
+
       .drop-btn {
         position: relative;
       }
+
       .drop-btn,
       .drop-btn::before,
       .drop-btn::after {
@@ -116,20 +127,24 @@
         height: 3px;
         background-color: rgb(200, 200, 200);
       }
+
       .drop-btn::before,
       .drop-btn::after {
         position: absolute;
         left: 0;
         content: "";
       }
+
       .drop-btn::before {
         top: 8px;
       }
+
       .drop-btn::after {
         bottom: 8px;
       }
     }
   }
+
   .top-toggle {
     visibility: hidden;
     position: absolute;
@@ -159,6 +174,7 @@
       display: flex;
       flex-flow: row nowrap;
       justify-content: flex-end;
+
       .top-item {
         margin: 0;
         opacity: 1;
