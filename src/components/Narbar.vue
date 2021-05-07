@@ -13,19 +13,19 @@
         id="top-toggle"
         v-model="toggle"
       />
-      <nav class="top-list">
+      <div class="top-list">
         <!-- <ui> -->
-        <li class="top-item" @click.stop.prevent="closeTop()">
+        <div class="top-item" @click.stop.prevent="closeTop()">
           <router-link to="/">Home</router-link>
-        </li>
-        <li class="top-item" @click.stop.prevent="closeTop()">
+        </div>
+        <div class="top-item" @click.stop.prevent="closeTop()">
           <router-link to="/work">Work</router-link>
-        </li>
-        <li class="top-item" @click.stop.prevent="closeTop()">
+        </div>
+        <div class="top-item" @click.stop.prevent="closeTop()">
           <router-link to="/about-me">About me</router-link>
-        </li>
+        </div>
         <!-- </ui> -->
-      </nav>
+      </div>
     </div>
   </div>
 </template>
@@ -63,12 +63,13 @@
     transform-origin: top;
     transform: scale(1, 0);
     .top-item {
-      font-size: $mainFontSize;
+      // font-size: $mainFontSize;
       background-color: $topBarSubBackgroundColor;
       height: 40px;
       line-height: 40px;
       opacity: 0;
       a {
+        font-size: $mainFontSize;
         color: $topBarColor;
         @extend %hover-under-line;
 
@@ -132,6 +133,41 @@
   .top-toggle {
     visibility: hidden;
     position: absolute;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .top-bar {
+    all: unset;
+    display: grid;
+    grid-template-columns: 1fr auto minmax(400px, 4fr) 1fr;
+
+    .top-brand {
+      grid-column: 2/3;
+      line-height: 80px;
+    }
+
+    .top-toggle-label {
+      .hamburger {
+        display: none;
+      }
+    }
+
+    .top-list {
+      all: unset;
+      grid-column: 3 / 4;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: flex-end;
+      .top-item {
+        margin: 0;
+        opacity: 1;
+        background-color: $topBarBackgroundColor;
+        height: 90px;
+        line-height: 90px;
+        margin: 0 1rem;
+      }
+    }
   }
 }
 </style> 
