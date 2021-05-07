@@ -38,7 +38,7 @@
 .header {
   width: 100%;
   height: 90px;
-  position: fixed;
+  position: relative;
   z-index: 999;
   background-color: $topBarBackgroundColor;
 }
