@@ -1,5 +1,5 @@
 <template>
-  <div class="bottom-footer"></div>
+  <div class="bottom-footer">E-mail</div>
 </template>
 
 <style lang="scss" scoped>
@@ -14,6 +14,6 @@
 
 <script>
 export default {
-  name: "footer",
+  name: "pagFooter",
 };
 </script>
