@@ -1,22 +1,41 @@
 <template>
-  <!-- <div class="top-works_wrapper"> -->
-  <div class="top-works">
-    <div
-      class="works col-6 col-md-4 col-xl-2"
-      v-for="work in topWorks"
-      :key="work.id"
-    >
-      <router-link to="/">
-        <div class="img_wrapper">
-          <img class="img img-fluid" :src="work.picture" :alt="work.title" />
+  <div class="top-works_wrapper">
+    <div class="top-works">
+      <div
+        class="works col-6 col-md-4 col-xl-2"
+        v-for="work in topWorks"
+        :key="work.id"
+      >
+        <router-link to="/">
+          <div class="img_wrapper">
+            <img class="img img-fluid" :src="work.picture" :alt="work.title" />
+          </div>
+        </router-link>
+        <div class="work-title">
+          <h3 class="title">{{ work.title }}</h3>
         </div>
-      </router-link>
-      <div class="work-title">
-        <h3 class="title">{{ work.title }}</h3>
+      </div>
+    </div>
+    <router-link to="/"> </router-link>
+    <div class="more-works">
+      <div class="btn">
+        More Works
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          fill="currentColor"
+          class="bi bi-chevron-right"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+          />
+        </svg>
       </div>
     </div>
   </div>
-  <!-- </div> -->
 </template>
 
 
@@ -69,6 +88,24 @@
         font-size: 1.6rem;
       }
     }
+  }
+}
+.more-works {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  margin: 5px 0 15px 0;
+  text-align: center;
+
+  .btn {
+    width: 160px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 30px;
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 1.2em;
+    padding: 0 0 0 15px;
   }
 }
 </style>
