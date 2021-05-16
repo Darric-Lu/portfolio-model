@@ -23,7 +23,7 @@
               </span>
             </div>
           </div>
-          <router-link to="/">
+          <router-link to="/about-me">
             <div class="more-abot-me">
               <div class="btn">More About Me</div>
             </div>
