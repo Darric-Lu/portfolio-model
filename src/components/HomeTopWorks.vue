@@ -49,8 +49,7 @@
   .works {
     // border: 2px red solid;
     // position: relative;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding: 16px 8px;
 
     .img_wrapper {
       // width: 100%;
