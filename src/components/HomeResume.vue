@@ -2,12 +2,12 @@
   <div class="resume-wrapper">
     <div class="resume col-10">
       <div class="content">
-        <div class="avatar col-12">
+        <div class="avatar col-12 col-lg-6">
           <div class="avatar_cover">
             <img :src="avatar" alt="" class="avatar-img" />
           </div>
         </div>
-        <div class="info">
+        <div class="info col-12 col-lg-6 p-lg-5">
           <div class="info-text">
             <div class="info-text-name">{{ author }}</div>
             <div class="info-text-position">
@@ -43,6 +43,7 @@
 
   .resume {
     height: auto;
+    max-width: 900px;
     background-color: $subColor;
     border-radius: 32px;
     margin-bottom: 64px;
@@ -106,7 +107,7 @@
     color: #ffffff;
     font-size: 1.2em;
     padding: 0;
-    margin: 16px 0;
+    margin: 32px 0 0 0;
   }
 }
 </style>
