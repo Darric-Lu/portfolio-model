@@ -112,7 +112,7 @@
 
 <script>
 export default {
-  name: "topWorks",
+  name: "home-top-Works",
   props: {
     topWorks: {
       type: Array,

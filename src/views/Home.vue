@@ -2,24 +2,32 @@
   <div class="home">
     <Home-video />
     <Home-top-Works :top-works="topWorks" />
+    <Home-resume :author="author" :resume="resume" :avatar="avatar" />
   </div>
-</template>
+</template> 
+
 
 
 <script>
 import HomeVideo from "../components/HomeVideo.vue";
-import HomeTopWorks from "../components/HomeTopWorks";
+import HomeTopWorks from "../components/HomeTopWorks.vue";
+import HomeResume from "../components/HomeResume.vue";
 import { topWorksData } from "../data/dummyData";
+import { PortfolioAuthor } from "./../data/dummyData";
 
 export default {
   name: "Home",
   components: {
     HomeVideo,
     HomeTopWorks,
+    HomeResume,
   },
   data() {
     return {
       topWorks: [],
+      avatar: "",
+      author: "",
+      resume: [],
     };
   },
   created() {
@@ -28,7 +36,10 @@ export default {
   methods: {
     fetchTopWorksData() {
       this.topWorks = [...topWorksData];
-      console.log("topWorks", this.topWorks);
+      this.author = PortfolioAuthor.name;
+      this.avatar = PortfolioAuthor.avatarImg;
+      this.resume = [...PortfolioAuthor.experience];
+      // console.log("topWorks", this.topWorks);
     },
   },
 };
