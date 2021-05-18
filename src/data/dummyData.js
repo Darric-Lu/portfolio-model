@@ -56,7 +56,13 @@ export const PortfolioAuthor = {
       responsible: "協助設計師進行設計，負責設計師與廠商討論關於處理，完成設計師交辦事項，協助辦公室行政相關活動",
       date: "20XX.XX ~ 20XX.XX"
     },
-
   ],
+  skill: ["Rhino", "ProE", "keyShot", "OctaneRender", "Adobe Photoshop", "Adobe illustrator"],
+  contact: {
+    tell: "09XX-XXXXXX",
+    email: "XXXX@gmail.com",
+    fb: "XXXXX XXXX XX",
+    ig: "XXX_XXX.XX"
+  },
   avatarImg: require('./../image/avatar.png')
 }
