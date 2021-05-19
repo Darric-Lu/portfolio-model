@@ -6,7 +6,7 @@
         v-for="work in topWorks"
         :key="work.id"
       >
-        <router-link to="/">
+        <router-link :to="{ path: `/work-detail/${work.id}` }">
           <div class="img_wrapper">
             <img class="img img-fluid" :src="work.picture" :alt="work.title" />
           </div>
