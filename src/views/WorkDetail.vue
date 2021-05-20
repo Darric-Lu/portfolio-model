@@ -4,7 +4,47 @@
       <h3>無資料</h3>
     </div>
     <div class="model" v-else>
-      <div
+      <div class="model_wrapper">
+        <iframe
+          :src="`https://my.spline.design/${link}/`"
+          frameborder="1"
+          width="100%"
+          height="100%"
+        ></iframe>
+        <router-link :to="{ path: `/work-detail/${prev}` }">
+          <div class="left-btn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              fill="currentColor"
+              class="bi bi-caret-left"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M10 12.796V3.204L4.519 8 10 12.796zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"
+              />
+            </svg>
+          </div>
+        </router-link>
+        <router-link :to="{ path: `/work-detail/${next}` }">
+          <div class="right-btn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              fill="currentColor"
+              class="bi bi-caret-right"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"
+              />
+            </svg>
+          </div>
+        </router-link>
+      </div>
+      <!-- <div
         id="carouselExampleControls"
         class="carousel slide"
         data-bs-ride="carousel"
@@ -12,14 +52,14 @@
         <div class="carousel-inner">
           <div class="carousel-item active">
             <iframe
-              src="https://my.spline.design/red12-9d898b078fa146294a5619bddbe70f22/"
+              :src="`https://my.spline.design/${link}/`"
               frameborder="1"
               width="100%"
               height="100%"
             ></iframe>
           </div>
-        </div>
-        <button
+        </div> -->
+      <!-- <button
           class="carousel-control-prev"
           type="button"
           data-bs-target="#carouselExampleControls"
@@ -36,23 +76,20 @@
         >
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
-        </button>
-      </div>
+        </button> 
+      </div>-->
     </div>
     <div class="info_wrapper">
       <div class="info">
-        <div class="left col-10 col-md-6">
-          <div class="info-name col-12">iphone 12 Red</div>
-          <div class="info-size col-12">6.1"</div>
+        <div class="left col-10 col-md-4">
+          <div class="info-name col-12">{{ workName }}</div>
+          <div class="info-size col-12">{{ workSize }}</div>
         </div>
-        <div class="right col-10 col-md-6">
+        <div class="right col-10 col-md-8">
           <div class="info-concept">
             <div class="info-concept-title">Design Concept</div>
             <div class="info-concept-content">
-              oremipsum dolor sit amet consectetur adipisicing elit. Nesciunt
-              aperiam labore porro vero voluptatum ipsum voluptas architecto
-              fuga sed quis eos dolorem, maiores at dolor assumenda facilis?
-              Quos, errorea.
+              {{ conceptContent }}
             </div>
           </div>
         </div>
@@ -63,6 +100,7 @@
 
 <style lang="scss" scoped>
 @import "./../assets/scss/main.scss";
+@import "./../assets/scss/reset.scss";
 iframe,
 .not-Found {
   height: 80vw;
@@ -73,11 +111,36 @@ iframe,
   flex-flow: column nowrap;
   justify-content: center;
 }
+.model {
+  &_wrapper {
+    position: relative;
+  }
+  .left-btn,
+  .right-btn {
+    position: absolute;
+    top: 50%;
+    line-height: 45px;
+    width: 48px;
+    height: 48px;
+    &:hover {
+      width: 48px;
+      height: 48px;
+      background-color: $subColor;
+      border-radius: 50%;
+    }
+  }
+  .left-btn {
+    left: 5%;
+  }
+  .right-btn {
+    right: 5%;
+  }
+}
 .info {
   margin: 32px auto;
   display: flex;
   flex-flow: row wrap;
-  max-width: 1400px;
+  max-width: 1200px;
 
   .left {
     margin: 0 auto;
@@ -90,39 +153,82 @@ iframe,
     font-size: 1.8 * $mainFontSize;
     margin-bottom: 16px;
     text-align: left;
-    padding-left: 10vw;
+    padding-left: 8vw;
   }
   &-concept {
     &-title {
       font-size: 1.8 * $mainFontSize;
       margin-bottom: 16px;
       text-align: left;
-      padding-left: 10vw;
+      padding-left: 8vw;
     }
     &-content {
       font-size: 1 * $mainFontSize;
       text-align: left;
-      margin: 0 10vw 16px 10vw;
+      margin: 0 2vw 16px 8vw;
     }
   }
 }
 </style>
-
+<style>
+a {
+  color: black;
+}
+</style>
 <script>
+import { TopWorks } from "./../data/TopWorks";
 export default {
   name: "WorkDetail",
   data() {
     return {
       workdId: "",
+      workName: "",
+      workSize: "",
+      conceptContent: "",
+      link: "",
+      prev: "",
+      next: "",
     };
+  },
+  beforeRouteUpdate(to, from, next) {
+    const { id } = to.params;
+    this.fetchWorkdata(id);
+    this.prevPag(id);
+    this.nextPage(id);
+    next();
   },
   created() {
     const { id: workdId } = this.$route.params;
-    this.fetchWorkId(workdId);
+    this.fetchWorkdata(workdId);
+    this.prevPag(workdId);
+    this.nextPage(workdId);
   },
   methods: {
-    fetchWorkId(id) {
+    fetchWorkdata(id) {
       this.workdId = id;
+      const data = TopWorks.find((item) => item.id === Number(id));
+      // console.log("TopWorks", TopWorks);
+      // console.log("data", data);
+      this.workName = data.name;
+      this.workSize = data.size;
+      this.conceptContent = data.concept;
+      this.link = data.link;
+    },
+    prevPag(id) {
+      let prevNumber = Number(id) - 1;
+      if (prevNumber === 0) {
+        prevNumber = 6;
+      }
+      this.prev = prevNumber;
+      // console.log("prev", this.prev);
+    },
+    nextPage(id) {
+      let nextNumber = Number(id) + 1;
+      if (nextNumber > 6) {
+        nextNumber = 1;
+      }
+      this.next = nextNumber;
+      // console.log("next", this.next);
     },
   },
 };

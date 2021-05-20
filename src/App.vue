@@ -27,6 +27,7 @@ export default {
 
 <style lang="scss">
 @import "../src/assets/scss/main.scss";
+// @import "../src/assets/scss/reset.scss";
 
 #portfolio {
   // font-family: Avenir, Helvetica, Arial, sans-serif;
