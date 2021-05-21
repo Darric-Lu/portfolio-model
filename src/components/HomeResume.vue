@@ -3,7 +3,7 @@
     <div class="resume col-10">
       <div class="content">
         <div class="avatar col-12 col-lg-6">
-          <div class="avatar_cover">
+          <div class="avatar_cover col-10">
             <img :src="avatar" alt="" class="avatar-img" />
           </div>
         </div>
@@ -62,8 +62,8 @@
 
     &_cover {
       margin: 10% 0;
-      width: 360px;
-      height: 360px;
+      max-width: 360px;
+      max-height: 360px;
       border-radius: 50%;
       display: flex;
       justify-content: center;
@@ -71,6 +71,7 @@
     }
     &-img {
       object-fit: cover;
+      width: 100%;
     }
   }
 }

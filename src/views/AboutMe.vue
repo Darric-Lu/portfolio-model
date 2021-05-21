@@ -3,7 +3,7 @@
     <div class="about-me col-10">
       <div class="left col-12 col-lg-6">
         <div class="avatar">
-          <div class="avatar_cover">
+          <div class="avatar_cover col-10">
             <img class="avatar-img" :src="avatar" :alt="name" />
           </div>
         </div>
@@ -64,8 +64,8 @@
 
   &_cover {
     margin: 10% 0;
-    width: 360px;
-    height: 360px;
+    max-width: 360px;
+    max-height: 360px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -73,9 +73,11 @@
   }
   &-img {
     object-fit: cover;
+    width: 100%;
   }
 }
 .name {
+  margin-top: 16px;
   font-size: 2 * $mainFontSize;
 }
 .skill,
