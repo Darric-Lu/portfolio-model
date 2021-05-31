@@ -1,7 +1,7 @@
 <template>
   <div class="works-area">
     <div class="works-wrarpper">
-      <div class="work" v-for="work in works" :key="work.id">
+      <div class="work" data-aos="fade-up" v-for="work in works" :key="work.id">
         <picture>
           <img class="work-img" :src="work.picture" :alt="work.title" />
         </picture>
@@ -36,16 +36,6 @@
               aria-label="Close"
             ></button>
           </div>
-          <div class="modal-body">...</div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="button" class="btn btn-primary">Save changes</button>
           </div>
         </div>
       </div>
@@ -71,6 +61,7 @@
 
   .work {
     min-width: 300px;
+    height: 300px; //aso 後設定
     background-color: #ffffff;
     -webkit-box-shadow: 0px 1px 3px 2px rgba(87, 87, 87, 0.2);
     -moz-box-shadow: 0px 1px 3px 2px rgba(87, 87, 87, 0.2);
@@ -86,6 +77,8 @@
 </style>
 <script>
 import { works } from "./../data/works";
+import AOS from "aos";
+import "aos/dist/aos.css";
 export default {
   name: "Works",
   data() {
@@ -95,6 +88,10 @@ export default {
   },
   created() {
     this.fecthWorksData();
+    AOS.init({
+      duration: 1200,
+      offset: 120,
+    });
   },
   methods: {
     fecthWorksData() {
