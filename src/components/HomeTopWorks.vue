@@ -2,18 +2,19 @@
   <div class="top-works_wrapper">
     <div class="top-works">
       <div
-        class="works col-6 col-md-4 col-xl-2"
+        class="work col-12 col-md-6 col-xxl-4"
         v-for="work in topWorks"
         :key="work.id"
+        data-aos="fade-up"
       >
         <router-link :to="{ path: `/work-detail/${work.id}` }">
           <div class="img_wrapper">
-            <img class="img img-fluid" :src="work.picture" :alt="work.title" />
+            <img class="img" :src="work.picture" :alt="work.title" />
           </div>
         </router-link>
-        <div class="work-title">
+        <!-- <div class="work-title">
           <h3 class="title">{{ work.title }}</h3>
-        </div>
+        </div> -->
       </div>
     </div>
     <router-link to="/works">
@@ -44,41 +45,33 @@
 .top-works {
   display: flex;
   flex-flow: row wrap;
-  margin: 0 auto;
+  margin: 32px auto;
   width: 90vw;
 
-  .works {
-    // border: 2px red solid;
-    // position: relative;
-    padding: 16px 8px;
+  .work {
+    padding: 12px;
 
     .img_wrapper {
-      // width: 100%;
-      // height: 100%;
       border: 1px #e0e0e0 solid;
-      border-radius: 16px;
+      border-radius: 8px;
       -webkit-box-shadow: 0px 1px 5px 0px rgba(87, 87, 87, 0.6);
       -moz-box-shadow: 0px 1px 5px 0px rgba(87, 87, 87, 0.6);
       box-shadow: 0px 1px 5px 0px rgba(87, 87, 87, 0.6);
       overflow: hidden;
+      display: flex;
+      justify-content: center;
 
-      // &::after {
-      // content: "";
-      // display: block;
-      // padding-top: 112%;
-      // position: absolute;
-      // background-color: rgb(146, 111, 111);
-      // }
       .img {
-        max-width: 100%;
-        max-height: 100%;
-        // object-fit: cover;
-        // position: absolute;
-        // top: 50%;
-        // left: 50%;
-        // transform: translate(-50%, -50%);
+        object-fit: cover;
+        width: 110%;
+      }
+
+      &:hover {
+        cursor: pointer;
+        opacity: 0.5;
       }
     }
+
     .work-title {
       display: flex;
       flex-flow: row;
@@ -91,12 +84,6 @@
   }
 }
 .more-works {
-  // display: flex;
-  // flex-flow: row nowrap;
-  // justify-content: center;
-  // margin: 5px 0 15px 0;
-  // text-align: center;
-
   .btn {
     width: 160px;
     height: 50px;
@@ -111,6 +98,8 @@
 </style>
 
 <script>
+import AOS from "aos";
+import "aos/dist/aos.css";
 export default {
   name: "home-top-Works",
   props: {
@@ -118,6 +107,12 @@ export default {
       type: Array,
       required: true,
     },
+  },
+  created() {
+    AOS.init({
+      duration: 2000,
+      offset: 200,
+    });
   },
 };
 </script>
