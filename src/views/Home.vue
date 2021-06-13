@@ -40,6 +40,7 @@ export default {
       email: "",
       worksAmount: 12,
       works: [],
+      worksIndex: [1, 3, 7, 11, 13, 18, 22, 24, 31, 43, 48, 50],
     };
   },
   created() {
@@ -52,7 +53,14 @@ export default {
       this.topWorks = [...topWorksData];
     },
     fetchWorksData() {
-      this.works = [...works.slice(0, this.worksAmount)];
+      console.log("worksIndex", this.worksIndex.length);
+      for (let i = 0; i < this.worksIndex.length; i++) {
+        console.log(i);
+        let index = Number(this.worksIndex[i]);
+        this.works = [...this.works, ...works.slice(index - 1, index)];
+        this.works[i].id = i + 1;
+      }
+      // this.works = [...works.slice(0, this.worksAmount)];
     },
     fetchResumeData() {
       this.author = PortfolioAuthor.name;

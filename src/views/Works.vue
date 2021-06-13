@@ -93,8 +93,9 @@
   background-color: $subColor;
 
   .work {
-    min-width: 300px;
-    height: 300px; //aso 後設定
+    // min-width: 300px;
+    // height: 300px; //aso 後設定
+    border-radius: 8px;
     background-color: #ffffff;
     -webkit-box-shadow: 0px 1px 3px 2px rgba(87, 87, 87, 0.2);
     -moz-box-shadow: 0px 1px 3px 2px rgba(87, 87, 87, 0.2);
@@ -207,7 +208,7 @@ export default {
     },
     changePrevious(workId) {
       if (Number(workId) - 1 === 0) {
-        return (this.modal.previous = 48);
+        return (this.modal.previous = this.works.length);
       }
       this.modal.previous = Number(workId) - 1;
     },
