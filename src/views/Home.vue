@@ -55,7 +55,6 @@ export default {
     fetchWorksData() {
       console.log("worksIndex", this.worksIndex.length);
       for (let i = 0; i < this.worksIndex.length; i++) {
-        console.log(i);
         let index = Number(this.worksIndex[i]);
         this.works = [...this.works, ...works.slice(index - 1, index)];
         this.works[i].id = i + 1;

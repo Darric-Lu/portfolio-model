@@ -1,6 +1,6 @@
 <template>
   <div class="work-detail_wrapper">
-    <div class="not-Found" v-if="workdId > 6">
+    <div class="not-Found" v-if="workdId > 6 || workdId < 1">
       <h3>無資料</h3>
     </div>
     <div class="model" v-else>
@@ -44,40 +44,6 @@
           </div>
         </router-link>
       </div>
-      <!-- <div
-        id="carouselExampleControls"
-        class="carousel slide"
-        data-bs-ride="carousel"
-      >
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <iframe
-              :src="`https://my.spline.design/${link}/`"
-              frameborder="1"
-              width="100%"
-              height="100%"
-            ></iframe>
-          </div>
-        </div> -->
-      <!-- <button
-          class="carousel-control-prev"
-          type="button"
-          data-bs-target="#carouselExampleControls"
-          data-bs-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#carouselExampleControls"
-          data-bs-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button> 
-      </div>-->
     </div>
     <div class="info_wrapper">
       <div class="info">
@@ -95,6 +61,9 @@
         </div>
       </div>
     </div>
+    <div class="detail-image">
+      <img :src="image" :alt="workName" />
+    </div>
   </div>
 </template>
 
@@ -103,8 +72,8 @@
 @import "./../assets/scss/reset.scss";
 iframe,
 .not-Found {
-  height: 80vw;
-  max-height: 900px;
+  height: 80vh;
+  max-height: 700px;
 }
 .not-Found {
   display: flex;
@@ -122,6 +91,8 @@ iframe,
     line-height: 45px;
     width: 48px;
     height: 48px;
+    background-color: $subColor;
+    border-radius: 50%;
     &:hover {
       width: 48px;
       height: 48px;
@@ -169,6 +140,10 @@ iframe,
     }
   }
 }
+.detail-image {
+  padding: 100px 0;
+  background-color: $topBarSubBackgroundColor;
+}
 </style>
 <style>
 a {
@@ -188,6 +163,7 @@ export default {
       link: "",
       prev: "",
       next: "",
+      image: "",
     };
   },
   beforeRouteUpdate(to, from, next) {
@@ -213,6 +189,7 @@ export default {
       this.workSize = data.size;
       this.conceptContent = data.concept;
       this.link = data.link;
+      this.image = data.image;
     },
     prevPag(id) {
       let prevNumber = Number(id) - 1;
