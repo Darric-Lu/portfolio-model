@@ -3,7 +3,12 @@
     <Home-video />
     <Home-top-Works :top-works="topWorks" />
     <Home-works :works="works" />
-    <Home-resume :author="author" :resume="resume" :avatar="avatar" />
+    <Home-resume
+      :author="author"
+      :resume="resume"
+      :avatar="avatar"
+      :email="email"
+    />
   </div>
 </template> 
 
@@ -32,6 +37,7 @@ export default {
       avatar: "",
       author: "",
       resume: [],
+      email: "",
       worksAmount: 12,
       works: [],
     };
@@ -39,18 +45,20 @@ export default {
   created() {
     this.fetchTopWorksData();
     this.fetchWorksData();
+    this.fetchResumeData();
   },
   methods: {
     fetchTopWorksData() {
       this.topWorks = [...topWorksData];
-      this.author = PortfolioAuthor.name;
-      this.avatar = PortfolioAuthor.avatarImg;
-      this.resume = [...PortfolioAuthor.experience];
-      // console.log("topWorks", this.topWorks);
     },
     fetchWorksData() {
       this.works = [...works.slice(0, this.worksAmount)];
-      console.log(" this.works", this.works);
+    },
+    fetchResumeData() {
+      this.author = PortfolioAuthor.name;
+      this.avatar = PortfolioAuthor.avatarImg;
+      this.resume = [...PortfolioAuthor.experience];
+      this.email = PortfolioAuthor.contact.email;
     },
   },
 };

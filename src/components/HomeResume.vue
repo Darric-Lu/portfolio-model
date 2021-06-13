@@ -22,12 +22,18 @@
                 <p class="info-text-position-date">{{ resume[1].date }}</p>
               </span>
             </div>
+            <div class="info-text-position">
+              <span>
+                <p class="info-text-position-main">E-mail</p>
+                <p class="info-text-position-date">{{ email }}</p>
+              </span>
+            </div>
           </div>
-          <router-link to="/about-me">
+          <!-- <router-link to="/about-me">
             <div class="more-abot-me">
               <div class="btn">More About Me</div>
             </div>
-          </router-link>
+          </router-link> -->
         </div>
       </div>
     </div>
@@ -39,31 +45,37 @@
 .resume-wrapper {
   display: flex;
   justify-content: center;
-  margin-top: 32px;
+  margin-top: 140px;
+  background-color: $subColor;
 
   .resume {
     height: auto;
-    max-width: 900px;
-    background-color: $subColor;
-    border-radius: 32px;
-    margin-bottom: 64px;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    // border-radius: 32px;
+    margin-top: 32px;
   }
 }
 .content {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+  max-width: 900px;
 
   .avatar {
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
-    margin-bottom: -36px;
+    // margin-bottom: -36px;
 
     &_cover {
       margin: 10% 0;
-      max-width: 360px;
-      max-height: 360px;
+      // max-width: 360px;
+      width: 360px;
+      // max-height: 360px;
+      height: 360px;
       border-radius: 50%;
       display: flex;
       justify-content: center;
@@ -77,7 +89,7 @@
 }
 .info {
   width: 360px;
-  margin: 0 0 32px 0;
+  // margin: 0 0 32px 0;
   &-text {
     color: $mainColor;
 
@@ -98,19 +110,20 @@
     }
   }
 }
-.more-abot-me {
-  .btn {
-    width: 170px;
-    height: 50px;
-    line-height: 50px;
-    border-radius: 30px;
-    background-color: #000000;
-    color: #ffffff;
-    font-size: 1.2em;
-    padding: 0;
-    margin: 32px 0 0 0;
-  }
-}
+// .more-abot-me {
+//   .btn {
+//     width: 220px;
+//     height: 60px;
+//     line-height: 60px;
+//     border-radius: 30px;
+//     background-color: #000000;
+//     color: #ffffff;
+//     font-size: 1.4em;
+//     padding: 0;
+//     margin: 32px 0 0 0;
+//   }
+// }
+//
 </style>
 
 <script>
@@ -129,12 +142,16 @@ export default {
       type: String,
       require: true,
     },
+    email: {
+      type: String,
+      require: true,
+    },
   },
   data() {
     return {};
   },
   created() {
-    console.log("author");
+    // console.log("author");
   },
 };
 </script>
