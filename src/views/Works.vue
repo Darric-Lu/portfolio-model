@@ -1,6 +1,6 @@
 <template>
   <div class="works-area">
-    <div class="works-wrarpper">
+    <div class="works-wrapper">
       <div
         class="work"
         data-aos="fade-up"
@@ -82,7 +82,7 @@
   background-color: $subColor;
   padding: 36px 0;
 }
-.works-wrarpper {
+.works-wrapper {
   width: 90vw;
   margin: 0 auto;
   display: grid;
@@ -99,16 +99,20 @@
     -webkit-box-shadow: 0px 1px 3px 2px rgba(87, 87, 87, 0.2);
     -moz-box-shadow: 0px 1px 3px 2px rgba(87, 87, 87, 0.2);
     box-shadow: 0px 1px 3px 2px rgba(87, 87, 87, 0.2);
-    border: 20px solid transparent;
+    // border: 20px solid transparent;
     overflow: hidden;
 
     &-img {
       object-fit: cover;
       width: 100%;
-    }
-    &:hover {
-      cursor: pointer;
-      border: 0.1px solid transparent;
+
+      &:hover {
+        cursor: pointer;
+        // border: 0.1px solid transparent;
+        -webkit-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+        transform: scale(1.05);
+      }
     }
   }
 }
