@@ -20,7 +20,8 @@
 
   .video {
     grid-column: 2/3;
-    width: 90vw;
+    width: 100vw;
+    max-width: 960px;
     height: auto;
   }
 }

@@ -68,7 +68,10 @@
 
       &:hover {
         cursor: pointer;
-        opacity: 0.5;
+        // opacity: 0.5;
+        -webkit-transform: scale(1.02);
+        -ms-transform: scale(1.02);
+        transform: scale(1.02);
       }
     }
 
