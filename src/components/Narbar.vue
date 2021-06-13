@@ -22,6 +22,12 @@
           <router-link to="/works">Works</router-link>
         </div>
         <div class="top-item" @click.stop.prevent="closeTop()">
+          <router-link to="/video">Video</router-link>
+        </div>
+        <div class="top-item" @click.stop.prevent="closeTop()">
+          <router-link to="/work-detail/1">3D</router-link>
+        </div>
+        <div v-if="false" class="top-item" @click.stop.prevent="closeTop()">
           <router-link to="/about-me">About me</router-link>
         </div>
         <!-- </ui> -->
