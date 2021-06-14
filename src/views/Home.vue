@@ -53,13 +53,11 @@ export default {
       this.topWorks = [...topWorksData];
     },
     fetchWorksData() {
-      console.log("worksIndex", this.worksIndex.length);
       for (let i = 0; i < this.worksIndex.length; i++) {
         let index = Number(this.worksIndex[i]);
         this.works = [...this.works, ...works.slice(index - 1, index)];
         this.works[i].id = i + 1;
       }
-      // this.works = [...works.slice(0, this.worksAmount)];
     },
     fetchResumeData() {
       this.author = PortfolioAuthor.name;

@@ -184,7 +184,10 @@ export default {
   },
   methods: {
     fecthWorksData() {
-      this.works = [...works];
+      this.works = works;
+      for (let i = 0; i < this.works.length; i++) {
+        this.works[i].id = i + 1;
+      }
     },
     modalImageChange(workId) {
       this.modal.number = "";
@@ -196,9 +199,7 @@ export default {
         }
       });
       this.changeNext(workId);
-      console.log("next", this.modal.next);
       this.changePrevious(workId);
-      console.log("previous", this.modal.previous);
     },
     changeNext(workId) {
       if (Number(workId) === this.works.length) {
