@@ -13,7 +13,7 @@
 <script>
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Navbar from "./components/Narbar";
+import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 export default {
