@@ -5,7 +5,8 @@
       loop="true"
       autoplay="autoplay"
       muted="true"
-      preload="”auto”"
+      preload="auto"
+      controls
     >
       <source src="../video/home_video.mp4" type="video/mp4" />
     </video>
