@@ -14,22 +14,26 @@
         v-model="toggle"
       />
       <div class="top-list">
-        <!-- <ui> -->
-        <div class="top-item" @click.stop.prevent="closeTop()">
-          <router-link to="/">Home</router-link>
-        </div>
-        <div class="top-item" @click.stop.prevent="closeTop()">
-          <router-link to="/works">Works</router-link>
-        </div>
-        <div class="top-item" @click.stop.prevent="closeTop()">
-          <router-link to="/video">Video</router-link>
-        </div>
-        <div class="top-item" @click.stop.prevent="closeTop()">
-          <router-link to="/work-detail/1">3D</router-link>
-        </div>
-        <div v-if="false" class="top-item" @click.stop.prevent="closeTop()">
-          <router-link to="/about-me">About me</router-link>
-        </div>
+        <router-link class="item" to="/">
+          <div class="item-content" @click="closeTop()">
+            <span> Home </span>
+          </div>
+        </router-link>
+        <router-link class="item" to="/works">
+          <div class="item-content" @click="closeTop()">
+            <span> Works </span>
+          </div>
+        </router-link>
+        <router-link class="item" to="/video">
+          <div class="item-content" @click="closeTop()">
+            <span> Video </span>
+          </div>
+        </router-link>
+        <router-link class="item" to="/work-detail/1">
+          <div class="item-content" @click="closeTop()">
+            <span> 3D </span>
+          </div>
+        </router-link>
         <!-- </ui> -->
       </div>
     </div>
@@ -62,7 +66,7 @@
     transform: scale(1, 1);
   }
 
-  .top-toggle:checked ~ .top-list .top-item {
+  .top-toggle:checked ~ .top-list .item .item-content {
     transition: opacity 0.2s ease-out 0.15s;
     opacity: 1;
   }
@@ -72,31 +76,39 @@
     transform-origin: top;
     transform: scale(1, 0);
 
-    .top-item {
-      // font-size: $mainFontSize;
-      background-color: $topBarSubBackgroundColor;
-      height: 40px;
-      line-height: 40px;
-      opacity: 0;
+    a {
+      color: $topBarColor;
 
-      a {
-        font-size: $mainFontSize;
-        color: $topBarColor;
-        @extend %hover-under-line;
+      .item-content {
+        background-color: $topBarSubBackgroundColor;
+        height: 60px;
+        line-height: 60px;
+        opacity: 0;
 
-        &:after {
-          @extend %hover-under-line_after;
-        }
-
-        &:hover::after {
-          @extend %hover-under-line_hover-after;
-        }
-
-        &.router-link-exact-active {
-          color: #272727;
+        span {
+          @extend %hover-under-line;
+          font-size: $mainFontSize;
           &:after {
             @extend %hover-under-line_after;
-            background-color: #272727;
+          }
+        }
+
+        &:hover {
+          span:after {
+            @extend %hover-under-line_hover-after;
+          }
+        }
+      }
+
+      &.router-link-exact-active {
+        .item-content {
+          span {
+            color: #272727;
+
+            &:after {
+              @extend %hover-under-line_after;
+              background-color: #272727;
+            }
           }
         }
       }
@@ -181,13 +193,15 @@
       flex-flow: row nowrap;
       justify-content: flex-end;
 
-      .top-item {
-        margin: 0;
-        opacity: 1;
-        background-color: $topBarBackgroundColor;
-        height: 90px;
-        line-height: 90px;
-        margin: 0 1rem;
+      a {
+        .item-content {
+          margin: 0;
+          opacity: 1;
+          background-color: $topBarBackgroundColor;
+          height: 90px;
+          line-height: 90px;
+          margin: 0 1rem;
+        }
       }
     }
   }
