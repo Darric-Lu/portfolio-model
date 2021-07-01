@@ -12,9 +12,6 @@
             <img class="img" :src="work.picture" :alt="work.title" />
           </div>
         </router-link>
-        <!-- <div class="work-title">
-          <h3 class="title">{{ work.title }}</h3>
-        </div> -->
       </div>
     </div>
   </div>
@@ -42,25 +39,14 @@
 
       .img {
         object-fit: cover;
-        width: 110%;
+        width: 100%;
       }
 
       &:hover {
         cursor: pointer;
-        // opacity: 0.5;
         -webkit-transform: scale(1.05);
         -ms-transform: scale(1.05);
         transform: scale(1.05);
-      }
-    }
-
-    .work-title {
-      display: flex;
-      flex-flow: row;
-
-      h3 {
-        margin: 4px 0;
-        font-size: 1.6rem;
       }
     }
   }
@@ -81,7 +67,7 @@ export default {
   created() {
     AOS.init({
       duration: 1000,
-      offset: 150,
+      offset: 100,
     });
   },
 };
