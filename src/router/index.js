@@ -19,11 +19,11 @@ const routes = [
     name: 'Works',
     component: Works
   },
-  {
-    path: '/about-me',
-    name: 'AboutMe',
-    component: AboutMe
-  },
+  // {
+  //   path: '/about-me',
+  //   name: 'AboutMe',
+  //   component: AboutMe
+  // },
   {
     path: '/work-detail/:id',
     name: "WorkDetail",
