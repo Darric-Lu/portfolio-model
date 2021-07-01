@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Works from '../views/Works.vue'
-import AboutMe from '../views/AboutMe.vue'
+// import AboutMe from '../views/AboutMe.vue'
 import NotFound from '../views/NotFound.vue'
 import WorkDetail from '../views/WorkDetail.vue'
 
@@ -19,11 +19,11 @@ const routes = [
     name: 'Works',
     component: Works
   },
-  {
-    path: '/about-me',
-    name: 'AboutMe',
-    component: AboutMe
-  },
+  // {
+  //   path: '/about-me',
+  //   name: 'AboutMe',
+  //   component: AboutMe
+  // },
   {
     path: '/work-detail/:id',
     name: "WorkDetail",

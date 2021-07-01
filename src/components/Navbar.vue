@@ -24,11 +24,11 @@
             <span> Works </span>
           </div>
         </router-link>
-        <router-link class="item" to="/video">
+        <!-- <router-link class="item" to="/video">
           <div class="item-content" @click="closeTop()">
             <span> Video </span>
           </div>
-        </router-link>
+        </router-link> -->
         <router-link class="item" to="/work-detail/1">
           <div class="item-content" @click="closeTop()">
             <span> 3D </span>
