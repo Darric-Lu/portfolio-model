@@ -1,5 +1,7 @@
 <template>
-  <div class="bottom-footer">E-mail</div>
+  <div class="bottom-footer">
+    web development by <a href="https://github.com/Darric-Lu">Darric Lu</a>
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -7,7 +9,9 @@
 @import "../assets/scss/helper.scss";
 @import "../assets/scss/main.scss";
 .bottom-footer {
-  height: 120px;
+  height: 60px;
+  line-height: 60px;
+  color: $subColor;
   background-color: $mainColor;
 }
 </style> 
