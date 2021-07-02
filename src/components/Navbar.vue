@@ -47,7 +47,7 @@
 
 .header {
   width: 100%;
-  height: 90px;
+  height: 60px;
   position: relative;
   z-index: 999;
   background-color: $topBarBackgroundColor;
@@ -55,10 +55,10 @@
 
 .top-bar {
   .top-brand {
-    height: 90px;
-    line-height: 90px;
-    padding: 5px 0px;
-    font-size: 1.6 * $mainFontSize;
+    height: 60px;
+    line-height: 60px;
+    padding: 8px 0px;
+    font-size: 1.4 * $mainFontSize;
     color: $topBarColor;
   }
 
@@ -69,6 +69,7 @@
   .top-toggle:checked ~ .top-list .item .item-content {
     transition: opacity 0.2s ease-out 0.15s;
     opacity: 1;
+    display: block;
   }
 
   .top-list {
@@ -84,6 +85,7 @@
         height: 60px;
         line-height: 60px;
         opacity: 0;
+        display: none;
 
         span {
           @extend %hover-under-line;
@@ -177,7 +179,7 @@
 
     .top-brand {
       grid-column: 2/3;
-      line-height: 80px;
+      padding: 0px;
     }
 
     .top-toggle-label {
@@ -195,11 +197,12 @@
 
       a {
         .item-content {
+          display: block;
           margin: 0;
           opacity: 1;
           background-color: $topBarBackgroundColor;
-          height: 90px;
-          line-height: 90px;
+          height: 60px;
+          line-height: 60px;
           margin: 0 1rem;
         }
       }
