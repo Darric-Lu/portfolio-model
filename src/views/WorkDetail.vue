@@ -11,6 +11,8 @@
           width="100%"
           height="100%"
         ></iframe>
+        <div class="left-zoom"></div>
+        <div class="right-zoom"></div>
         <router-link :to="{ path: `/work-detail/${prev}` }">
           <div class="left-btn">
             <svg
@@ -43,6 +45,9 @@
             </svg>
           </div>
         </router-link>
+        <div class="center-zoom">
+          <img src="./../image/360-degrees.png" alt="360度展示" />
+        </div>
       </div>
     </div>
     <div class="info_wrapper">
@@ -61,7 +66,7 @@
         </div>
       </div>
     </div>
-    <div class="detail-image">
+    <div class="detail-image col-12">
       <img :src="image" :alt="workName" />
     </div>
   </div>
@@ -70,6 +75,15 @@
 <style lang="scss" scoped>
 @import "./../assets/scss/main.scss";
 @import "./../assets/scss/reset.scss";
+a {
+  color: black;
+  &:hover {
+    opacity: 0.2;
+  }
+  &.router-link-exact-active {
+    opacity: 1;
+  }
+}
 iframe,
 .not-Found {
   height: 80vh;
@@ -83,6 +97,34 @@ iframe,
 .model {
   &_wrapper {
     position: relative;
+
+    .left-zoom,
+    .right-zoom {
+      position: absolute;
+      width: 15vw;
+      height: 100%;
+      opacity: 0;
+      top: 0;
+    }
+    .left-zoom {
+      left: 0;
+    }
+    .right-zoom {
+      right: 0;
+    }
+    .center-zoom {
+      position: absolute;
+      left: 50%;
+      bottom: 5px;
+      width: 100px;
+      height: 100px;
+      transform: translate(-50%, 0%);
+      img {
+        width: 80%;
+        height: 80%;
+        margin: 5px auto;
+      }
+    }
   }
   .left-btn,
   .right-btn {
@@ -93,12 +135,6 @@ iframe,
     height: 48px;
     background-color: $subColor;
     border-radius: 50%;
-    &:hover {
-      width: 48px;
-      height: 48px;
-      background-color: $subColor;
-      border-radius: 50%;
-    }
   }
   .left-btn {
     left: 5%;
@@ -141,15 +177,14 @@ iframe,
   }
 }
 .detail-image {
-  padding: 100px 0;
+  padding: 30px 0 0 0;
   background-color: $topBarSubBackgroundColor;
+  img {
+    width: 100%;
+  }
 }
 </style>
-<style>
-a {
-  color: black;
-}
-</style>
+
 <script>
 import { TopWorks } from "./../data/TopWorks";
 export default {
