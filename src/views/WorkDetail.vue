@@ -48,6 +48,13 @@
         <div class="center-zoom">
           <img src="./../image/360-degrees.png" alt="360度展示" />
         </div>
+        <div class="prompt col-4 p-2 p-lg-4" v-if="!isPrompted">
+          <p class="text-start ps-2 fs-3 fw-bold mb-0">網頁</p>
+          <p class="text-start ps-2">點擊滑鼠左鍵拖曳檢視，滾輪放大縮小</p>
+          <p class="text-start ps-2 fs-3 mb-0 fw-bold">行動裝置</p>
+          <p class="text-start ps-2">點擊拖曳檢視，雙指放大縮小</p>
+          <div class="btn btn-secondary" @click="toggleIsPrompted">了解</div>
+        </div>
       </div>
     </div>
     <div class="info_wrapper">
@@ -125,6 +132,16 @@ iframe,
         margin: 5px auto;
       }
     }
+    .prompt {
+      position: absolute;
+      // padding: 16px;
+      border-radius: 16px;
+      min-width: 300px;
+      background-color: $subColor;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
   }
   .left-btn,
   .right-btn {
@@ -199,6 +216,7 @@ export default {
       prev: "",
       next: "",
       image: "",
+      isPrompted: false,
     };
   },
   beforeRouteUpdate(to, from, next) {
@@ -213,13 +231,12 @@ export default {
     this.fetchWorkdata(workdId);
     this.prevPag(workdId);
     this.nextPage(workdId);
+    this.fetchIsPrompted();
   },
   methods: {
     fetchWorkdata(id) {
       this.workdId = id;
       const data = TopWorks.find((item) => item.id === Number(id));
-      // console.log("TopWorks", TopWorks);
-      // console.log("data", data);
       this.workName = data.name;
       this.workSize = data.size;
       this.conceptContent = data.concept;
@@ -232,7 +249,6 @@ export default {
         prevNumber = 6;
       }
       this.prev = prevNumber;
-      // console.log("prev", this.prev);
     },
     nextPage(id) {
       let nextNumber = Number(id) + 1;
@@ -240,7 +256,13 @@ export default {
         nextNumber = 1;
       }
       this.next = nextNumber;
-      // console.log("next", this.next);
+    },
+    toggleIsPrompted() {
+      this.isPrompted = true;
+      localStorage.setItem("isPrompted", true);
+    },
+    fetchIsPrompted() {
+      this.isPrompted = localStorage.getItem("isPrompted");
     },
   },
 };
