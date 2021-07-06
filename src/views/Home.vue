@@ -47,6 +47,9 @@ export default {
     this.fetchTopWorksData();
     this.fetchWorksData();
     this.fetchResumeData();
+    this.$nextTick(() => {
+      this.getLocal();
+    });
   },
   methods: {
     fetchTopWorksData() {
@@ -65,6 +68,18 @@ export default {
       this.resume = [...PortfolioAuthor.experience];
       this.email = PortfolioAuthor.contact.email;
     },
+    getLocal() {
+      let select = localStorage.getItem("tag");
+      if (select) {
+        setTimeout(() => {
+          document.scrollingElement.scrollTop =
+            document.scrollingElement.scrollHeight;
+        }, 150);
+      }
+    },
+  },
+  destroyed() {
+    localStorage.setItem("tag", "");
   },
 };
 </script>

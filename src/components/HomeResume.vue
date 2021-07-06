@@ -1,5 +1,5 @@
 ,<template>
-  <div class="resume-wrapper">
+  <div class="resume-wrapper" id="aboutMe">
     <div class="resume col-10">
       <div class="content">
         <div class="avatar col-12 col-lg-6">
@@ -29,11 +29,6 @@
               </span>
             </div>
           </div>
-          <!-- <router-link to="/about-me">
-            <div class="more-abot-me">
-              <div class="btn">More About Me</div>
-            </div>
-          </router-link> -->
         </div>
       </div>
     </div>
