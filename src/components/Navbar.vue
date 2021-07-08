@@ -88,6 +88,7 @@
         display: none;
 
         span {
+          cursor: pointer;
           @extend %hover-under-line;
           font-size: $mainFontSize;
           &:after {
