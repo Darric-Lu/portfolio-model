@@ -19,7 +19,7 @@
             <span> Home </span>
           </div>
         </router-link>
-        <router-link class="item" to="/work-detail/1">
+        <router-link class="item" to="/work-detail/2">
           <div class="item-content" @click="closeTop()">
             <span> 3D views </span>
           </div>
