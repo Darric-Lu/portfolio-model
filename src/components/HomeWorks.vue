@@ -210,6 +210,11 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
 }
+@media screen and (min-width: 1400px) {
+  .works-wrapper {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+}
 </style>
 
 <script>
