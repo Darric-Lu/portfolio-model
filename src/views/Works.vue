@@ -88,8 +88,8 @@
   display: grid;
   justify-content: center;
   align-items: center;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-gap: 40px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 8px;
   background-color: $subColor;
 
   .work {
@@ -156,6 +156,11 @@
 .btn-close {
   position: absolute;
   right: 15px;
+}
+@media screen and (min-width: 768px) {
+  .works-wrapper {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
 }
 </style>
 <script>
