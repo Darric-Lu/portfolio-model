@@ -40,7 +40,7 @@
 .resume-wrapper {
   display: flex;
   justify-content: center;
-  margin-top: 140px;
+  margin-top: 80px;
   background-color: $subColor;
 
   .resume {
@@ -63,13 +63,11 @@
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
-    // margin-bottom: -36px;
+    align-self: center;
+    padding: 0 0 32px 0;
 
     &_cover {
-      margin: 10% 0;
-      // max-width: 360px;
       width: 360px;
-      // max-height: 360px;
       height: 360px;
       border-radius: 50%;
       display: flex;
@@ -105,20 +103,6 @@
     }
   }
 }
-// .more-abot-me {
-//   .btn {
-//     width: 220px;
-//     height: 60px;
-//     line-height: 60px;
-//     border-radius: 30px;
-//     background-color: #000000;
-//     color: #ffffff;
-//     font-size: 1.4em;
-//     padding: 0;
-//     margin: 32px 0 0 0;
-//   }
-// }
-//
 </style>
 
 <script>

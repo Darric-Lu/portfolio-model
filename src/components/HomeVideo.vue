@@ -1,7 +1,7 @@
 <template>
   <div class="video-wrapper">
     <video
-      class="video"
+      class="video col-10"
       loop="true"
       autoplay="autoplay"
       muted="true"
@@ -21,7 +21,7 @@
   .video {
     grid-column: 2/3;
     width: 100vw;
-    max-width: 960px;
+    max-width: 1080px;
     height: auto;
   }
 }
