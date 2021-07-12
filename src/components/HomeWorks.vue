@@ -107,7 +107,7 @@
 .works-wrapper {
   display: grid;
   width: 90vw;
-  margin: 32px auto;
+  margin: 2vw auto;
   align-items: center;
   grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
