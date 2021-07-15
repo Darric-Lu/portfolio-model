@@ -2,7 +2,7 @@
   <div class="top-works_wrapper">
     <div class="top-works">
       <div
-        class="work col-12 col-md-6 col-xxl-4"
+        class="work col-6 col-md-4 col-xxl-2"
         v-for="work in topWorks"
         :key="work.id"
         data-aos="fade-up"
@@ -12,6 +12,9 @@
             <img class="img" :src="work.picture" :alt="work.title" />
           </div>
         </router-link>
+        <div class="work-title">
+          <h5 class="title">{{ work.title }}</h5>
+        </div>
       </div>
     </div>
   </div>
@@ -26,7 +29,7 @@
   width: 90vw;
 
   .work {
-    padding: 12px;
+    padding: 8px;
 
     .img_wrapper {
       border-radius: 8px;
@@ -47,6 +50,15 @@
         -webkit-transform: scale(1.05);
         -ms-transform: scale(1.05);
         transform: scale(1.05);
+      }
+    }
+
+    .work-title {
+      margin: 8px 0 0 8px;
+      text-align: left;
+
+      .title {
+        margin: 0;
       }
     }
   }

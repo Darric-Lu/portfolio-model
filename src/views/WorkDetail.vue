@@ -48,28 +48,27 @@
         <div class="center-zoom">
           <img src="./../image/360-degrees.png" alt="360度展示" />
         </div>
-        <div class="prompt col-4 p-2 p-lg-4" v-if="!isPrompted">
-          <p class="text-start ps-2 fs-3 fw-bold mb-0">網頁</p>
-          <p class="text-start ps-2">點擊滑鼠左鍵拖曳檢視，滾輪放大縮小</p>
+        <div class="prompt col-4 p-3" v-if="!isPrompted">
           <p class="text-start ps-2 fs-3 mb-0 fw-bold">行動裝置</p>
           <p class="text-start ps-2">點擊拖曳檢視，雙指放大縮小</p>
-          <div class="btn btn-secondary" @click="toggleIsPrompted">了解</div>
+          <div class="btn btn-secondary py-1" @click="toggleIsPrompted">
+            了解
+          </div>
         </div>
       </div>
     </div>
     <div class="info_wrapper">
       <div class="info">
-        <div class="left col-10 col-md-4">
-          <div class="info-name col-12">{{ workName }}</div>
-          <div class="info-size col-12">{{ workSize }}</div>
+        <div class="top col-10">
+          <div class="info-title col-12 col-md-6">作品名稱</div>
+          <div class="info-name col-12 col-md-6" v-html="workName"></div>
         </div>
-        <div class="right col-10 col-md-8">
-          <div class="info-concept">
-            <div class="info-concept-title">Design Concept</div>
-            <div class="info-concept-content">
-              {{ conceptContent }}
-            </div>
-          </div>
+        <div class="bottom col-10 mt-2 mt-md-5">
+          <div class="info-concept-title col-12 col-md-6">設計理念</div>
+          <div
+            class="info-concept-content col-12 col-md-6"
+            v-html="conceptContent"
+          ></div>
         </div>
       </div>
     </div>
@@ -134,8 +133,7 @@ iframe,
     }
     .prompt {
       position: absolute;
-      // padding: 16px;
-      border-radius: 16px;
+      border-radius: 8px;
       min-width: 300px;
       background-color: $subColor;
       top: 50%;
@@ -161,27 +159,27 @@ iframe,
   }
 }
 .info {
-  margin: 32px auto;
+  margin: 48px auto 64px auto;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
   max-width: 1200px;
 
-  .left {
+  .top,
+  .bottom {
     margin: 0 auto;
+    display: flex;
+    flex-flow: row wrap;
   }
-  .right {
-    margin: 0 auto;
-  }
-  &-name,
-  &-size {
-    font-size: 1.8 * $mainFontSize;
+  &-title,
+  &-name {
+    font-size: 1.4 * $mainFontSize;
     margin-bottom: 16px;
     text-align: left;
     padding-left: 8vw;
   }
   &-concept {
     &-title {
-      font-size: 1.8 * $mainFontSize;
+      font-size: 1.4 * $mainFontSize;
       margin-bottom: 16px;
       text-align: left;
       padding-left: 8vw;
@@ -189,7 +187,8 @@ iframe,
     &-content {
       font-size: 1 * $mainFontSize;
       text-align: left;
-      margin: 0 2vw 16px 8vw;
+      padding-left: 8vw;
+      padding-right: 8vw;
     }
   }
 }
@@ -198,6 +197,34 @@ iframe,
   background-color: $topBarSubBackgroundColor;
   img {
     width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .info {
+    .top,
+    .bottom {
+      margin-right: 20vw;
+    }
+
+    &-title,
+    &-name {
+      margin-bottom: 16px;
+      text-align: left;
+      padding-left: 6vw;
+    }
+    &-title {
+      text-align: right;
+    }
+    &-concept {
+      &-title {
+        text-align: right;
+        padding: 0 0 0 6vw;
+      }
+      &-content {
+        padding: 0 0 0 6vw;
+      }
+    }
   }
 }
 </style>
@@ -210,7 +237,6 @@ export default {
     return {
       workdId: "",
       workName: "",
-      workSize: "",
       conceptContent: "",
       link: "",
       prev: "",
@@ -238,7 +264,6 @@ export default {
       this.workdId = id;
       const data = TopWorks.find((item) => item.id === Number(id));
       this.workName = data.name;
-      this.workSize = data.size;
       this.conceptContent = data.concept;
       this.link = data.link;
       this.image = data.image;

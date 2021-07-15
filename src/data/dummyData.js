@@ -1,32 +1,32 @@
 export const topWorksData = [
   {
     id: 1,
-    title: "Title01",
+    title: "Dear Spoon",
     picture: require('./../image/top1.png')
   },
   {
     id: 2,
-    title: "Title02",
+    title: "Freedom & Fetters",
     picture: require('./../image/top2.png')
   },
   {
     id: 3,
-    title: "Title03",
+    title: "Buffalo Paperweight",
     picture: require('./../image/top3.png')
   },
   {
     id: 4,
-    title: "Title04",
+    title: "Fantasy Rose",
     picture: require('./../image/top4.png')
   },
   {
     id: 5,
-    title: "Title05",
+    title: "French Bulldog",
     picture: require('./../image/top5.png')
   },
   {
     id: 6,
-    title: "Title06",
+    title: "Twin Wolves",
     picture: require('./../image/top6.png')
   }
 ]

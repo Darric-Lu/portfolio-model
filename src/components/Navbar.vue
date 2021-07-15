@@ -19,21 +19,21 @@
             <span> Home </span>
           </div>
         </router-link>
+        <router-link class="item" to="/work-detail/2">
+          <div class="item-content" @click="closeTop()">
+            <span> 3D views </span>
+          </div>
+        </router-link>
         <router-link class="item" to="/works">
           <div class="item-content" @click="closeTop()">
             <span> Works </span>
           </div>
         </router-link>
-        <!-- <router-link class="item" to="/video">
-          <div class="item-content" @click="closeTop()">
-            <span> Video </span>
+        <a class="item" to="/about-me" @click="aboutMeTage('aboutMe')">
+          <div class="item-content">
+            <span> About Me </span>
           </div>
-        </router-link> -->
-        <router-link class="item" to="/work-detail/1">
-          <div class="item-content" @click="closeTop()">
-            <span> 3D </span>
-          </div>
-        </router-link>
+        </a>
         <!-- </ui> -->
       </div>
     </div>
@@ -88,6 +88,7 @@
         display: none;
 
         span {
+          cursor: pointer;
           @extend %hover-under-line;
           font-size: $mainFontSize;
           &:after {
@@ -222,6 +223,19 @@ export default {
   methods: {
     closeTop() {
       this.toggle = false;
+    },
+    aboutMeTage(tag) {
+      if (this.$route.path !== "/") {
+        let select = tag;
+        localStorage.setItem("tag", select);
+        this.$router.push({ name: "Home" });
+      } else {
+        setTimeout(() => {
+          document.scrollingElement.scrollTop =
+            document.scrollingElement.scrollHeight;
+        }, 150);
+      }
+      this.closeTop();
     },
   },
 };
