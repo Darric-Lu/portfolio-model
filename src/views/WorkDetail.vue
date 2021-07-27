@@ -45,12 +45,14 @@
             </svg>
           </div>
         </router-link>
-        <div class="center-zoom">
+        <div class="center-zoom" @click="openPrompted">
           <img src="./../image/360-degrees.png" alt="360度展示" />
         </div>
         <div class="prompt col-4 p-3" v-if="!isPrompted">
-          <p class="text-start ps-2 fs-3 mb-0 fw-bold">行動裝置</p>
-          <p class="text-start ps-2">點擊拖曳檢視，雙指放大縮小</p>
+          <p class="text-start ps-2 fs-3 mb-0 fw-bold">模型檢視</p>
+          <p class="text-start ps-2">
+            可以使用點擊拖曳來旋轉檢視、滾輪(雙指)來放大縮小
+          </p>
           <div class="btn btn-secondary py-1" @click="toggleIsPrompted">
             了解
           </div>
@@ -125,6 +127,7 @@ iframe,
       width: 100px;
       height: 100px;
       transform: translate(-50%, 0%);
+      cursor: pointer;
       img {
         width: 80%;
         height: 80%;
@@ -288,6 +291,9 @@ export default {
     },
     fetchIsPrompted() {
       this.isPrompted = localStorage.getItem("isPrompted");
+    },
+    openPrompted() {
+      this.isPrompted = false;
     },
   },
 };
