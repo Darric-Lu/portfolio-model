@@ -51,7 +51,7 @@
         <div class="prompt col-4 p-3" v-if="!isPrompted">
           <p class="text-start ps-2 fs-3 mb-0 fw-bold">模型檢視</p>
           <p class="text-start ps-2">
-            可以使用點擊拖曳來旋轉檢視、滾輪(雙指)來放大縮小
+            點擊拖曳可旋轉檢視，滾輪或雙指可放大縮小
           </p>
           <div class="btn btn-secondary py-1" @click="toggleIsPrompted">
             了解
