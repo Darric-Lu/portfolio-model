@@ -39,30 +39,42 @@ export const PortfolioAuthor = {
   },
   experience: [
     {
-      company: "銀飾珠寶",
-      position: "Silver designer",
-      responsible: "進行銀飾產品、珠寶飾品的開發與設計，與製作協力廠商溝通以及完成主管交代事項，協助完成後期產品平面視覺及影像。",
-      date: "20XX.XX ~ 20XX.XX"
+      position: "產品設計",
+      positionE: "Product design",
     },
     {
-      company: "眼展股份有限公司",
-      position: "Product designer",
-      responsible: "開發與設計功能性眼鏡之事宜，與廠商協力溝通，並完成產品的CMF與後期包裝設計",
-      date: "20XX.XX ~ 20XX.XX"
+      position: "3D模型繪製",
+      positionE: "3D model drawing",
     },
     {
-      company: "鹿森林實驗花廊",
-      position: "Assistant designer",
-      responsible: "協助設計師進行設計，負責設計師與廠商討論關於處理，完成設計師交辦事項，協助辦公室行政相關活動",
-      date: "20XX.XX ~ 20XX.XX"
+      position: "模型動畫製作",
+      positionE: "3D model animation design",
+    },
+    {
+      position: "3D列印操作",
+      positionE: "3D printing operation",
+    },
+    {
+      position: "CNC機器操作",
+      positionE: "CNC machine operation",
+    },
+     {
+      position: "雷射雕刻機器操作",
+      positionE: "Laser engraving machine operation",
     },
   ],
   skill: ["Rhino", "ProE", "keyShot", "OctaneRender", "Adobe Photoshop", "Adobe illustrator"],
   contact: {
     tell: "09XX-XXXXXX",
-    email: "XXXX@gmail.com",
+    email: "hkim713028@gmail.com",
     fb: "XXXXX XXXX XX",
     ig: "XXX_XXX.XX"
   },
   avatarImg: require('./../image/avatar.png')
 }
+ 
+ 
+ 
+ 
+ 
+ 
