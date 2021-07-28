@@ -1,6 +1,7 @@
 <template>
   <div class="bottom-footer">
-    web development by <a href="https://github.com/Darric-Lu">Darric Lu</a>
+    Web development by <a href="https://github.com/Darric-Lu">Darric Lu</a> |
+    <a href="mailto:darric.lu@gmail.com">Darric.lu@gmail.com</a>
   </div>
 </template>
 
@@ -9,10 +10,15 @@
 @import "../assets/scss/helper.scss";
 @import "../assets/scss/main.scss";
 .bottom-footer {
-  height: 60px;
-  line-height: 60px;
+  height: 100px;
+  line-height: 100px;
   color: $subColor;
   background-color: $mainColor;
+  font-size: $mainFontSize;
+  a {
+    font-weight: 600;
+    color: $subColor;
+  }
 }
 </style> 
 
