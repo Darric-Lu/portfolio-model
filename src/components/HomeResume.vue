@@ -58,7 +58,7 @@
                 {{ resume[5].positionE }}
               </div>
             </div>
-            <div class="info-text-position">
+            <div class="info-text-position pt-3">
               <div class="info-text-position-main">Contact me：</div>
               <div class="info-text-position-date">
                 <a class="info-text-position-mail" :href="`mailto:` + email">{{
@@ -154,7 +154,7 @@
     justify-content: space-between;
 
     .avatar {
-      margin: 50px 0 0 0;
+      margin: 50px 30px 0 0;
     }
   }
   .info {

@@ -1,7 +1,11 @@
 <template>
-  <div class="bottom-footer">
-    Web development by <a href="https://github.com/Darric-Lu">Darric Lu</a> |
-    <a href="mailto:darric.lu@gmail.com">Darric.lu@gmail.com</a>
+  <div class="bottom-footer pt-2">
+    Web development by
+    <p>
+      <a href="https://github.com/Darric-Lu" class="mt-5">Darric Lu</a>
+      |
+      <a href="mailto:darric.lu@gmail.com" class="ps-2">darric.lu@gmail.com</a>
+    </p>
   </div>
 </template>
 
@@ -9,9 +13,10 @@
 @import "../assets/scss/reset.scss";
 @import "../assets/scss/helper.scss";
 @import "../assets/scss/main.scss";
+
 .bottom-footer {
-  height: 100px;
-  line-height: 100px;
+  height: 120px;
+  line-height: 60px;
   color: $subColor;
   background-color: $mainColor;
   font-size: $mainFontSize;
