@@ -1,6 +1,6 @@
 <template>
   <div class="work-detail_wrapper">
-    <div class="not-Found" v-if="workdId > 6 || workdId < 1">
+    <div class="not-Found" v-if="workId > 6 || workId < 1">
       <h3>無資料</h3>
     </div>
     <div class="model" v-else>
@@ -238,7 +238,7 @@ export default {
   name: "WorkDetail",
   data() {
     return {
-      workdId: "",
+      workId: "",
       workName: "",
       conceptContent: "",
       link: "",
@@ -250,21 +250,21 @@ export default {
   },
   beforeRouteUpdate(to, from, next) {
     const { id } = to.params;
-    this.fetchWorkdata(id);
+    this.fetchWorkData(id);
     this.prevPag(id);
     this.nextPage(id);
     next();
   },
   created() {
-    const { id: workdId } = this.$route.params;
-    this.fetchWorkdata(workdId);
-    this.prevPag(workdId);
-    this.nextPage(workdId);
+    const { id: workId } = this.$route.params;
+    this.fetchWorkData(workId);
+    this.prevPag(workId);
+    this.nextPage(workId);
     this.fetchIsPrompted();
   },
   methods: {
-    fetchWorkdata(id) {
-      this.workdId = id;
+    fetchWorkData(id) {
+      this.workId = id;
       const data = TopWorks.find((item) => item.id === Number(id));
       this.workName = data.name;
       this.conceptContent = data.concept;
@@ -287,7 +287,7 @@ export default {
     },
     toggleIsPrompted() {
       this.isPrompted = true;
-      localStorage.setItem("isPrompted", true);
+      localStorage.setItem("isPrompted", true); //下次載入不跳提醒視窗
     },
     fetchIsPrompted() {
       this.isPrompted = localStorage.getItem("isPrompted");

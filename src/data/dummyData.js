@@ -33,10 +33,6 @@ export const topWorksData = [
 
 export const PortfolioAuthor = {
   name: "Kim Han",
-  school: {
-    University: "tatung",
-    Department: "Industrial Design"
-  },
   experience: [
     {
       position: "產品設計",
@@ -58,12 +54,11 @@ export const PortfolioAuthor = {
       position: "CNC機器操作",
       positionE: "CNC machine operation",
     },
-     {
+    {
       position: "雷射雕刻機器操作",
       positionE: "Laser engraving machine operation",
     },
   ],
-  skill: ["Rhino", "ProE", "keyShot", "OctaneRender", "Adobe Photoshop", "Adobe illustrator"],
   contact: {
     tell: "09XX-XXXXXX",
     email: "hkim713028@gmail.com",
@@ -72,9 +67,8 @@ export const PortfolioAuthor = {
   },
   avatarImg: require('./../image/avatar.png')
 }
- 
- 
- 
- 
- 
- 
+
+
+
+
+

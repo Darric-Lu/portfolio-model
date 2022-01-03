@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <Home-video />
+    <Home-Video />
     <Home-top-Works :top-works="topWorks" />
     <Home-works :works="works" />
     <Home-resume
@@ -11,7 +11,6 @@
     />
   </div>
 </template> 
-
 
 
 <script>
@@ -34,13 +33,12 @@ export default {
   data() {
     return {
       topWorks: [],
-      avatar: "",
+      worksIndex: [1, 3, 7, 11, 13, 18, 22, 24, 31, 43, 48, 50], //首頁選放之其他作品
+      works: [],
       author: "",
+      avatar: "",
       resume: [],
       email: "",
-      worksAmount: 12,
-      works: [],
-      worksIndex: [1, 3, 7, 11, 13, 18, 22, 24, 31, 43, 48, 50],
     };
   },
   created() {
@@ -48,6 +46,7 @@ export default {
     this.fetchWorksData();
     this.fetchResumeData();
     this.$nextTick(() => {
+      //渲染完之後執行
       this.getLocal();
     });
   },
@@ -69,6 +68,7 @@ export default {
       this.email = PortfolioAuthor.contact.email;
     },
     getLocal() {
+      //點選aboutMe之後轉至底部
       let select = localStorage.getItem("tag");
       if (select) {
         setTimeout(() => {
@@ -79,6 +79,7 @@ export default {
     },
   },
   destroyed() {
+    //清除tag
     localStorage.setItem("tag", "");
   },
 };

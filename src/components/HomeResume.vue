@@ -1,4 +1,4 @@
-,<template>
+<template>
   <div class="resume-wrapper" id="aboutMe">
     <div class="resume col-10">
       <div class="content">
@@ -10,52 +10,17 @@
         <div class="info col-12 col-lg-6 p-lg-2">
           <div class="info-text">
             <div class="info-text-name">{{ author }}</div>
-            <div class="info-text-position">
+
+            <div
+              class="info-text-position"
+              v-for="el in resume"
+              :key="el.index"
+            >
               <div class="info-text-position-main">
-                {{ resume[0].position }}
+                {{ el.position }}
               </div>
               <div class="info-text-position-english">
-                {{ resume[0].positionE }}
-              </div>
-            </div>
-            <div class="info-text-position">
-              <div class="info-text-position-main">
-                {{ resume[1].position }}
-              </div>
-              <div class="info-text-position-english">
-                {{ resume[1].positionE }}
-              </div>
-            </div>
-            <div class="info-text-position">
-              <div class="info-text-position-main">
-                {{ resume[2].position }}
-              </div>
-              <div class="info-text-position-english">
-                {{ resume[2].positionE }}
-              </div>
-            </div>
-            <div class="info-text-position">
-              <div class="info-text-position-main">
-                {{ resume[3].position }}
-              </div>
-              <div class="info-text-position-english">
-                {{ resume[3].positionE }}
-              </div>
-            </div>
-            <div class="info-text-position">
-              <div class="info-text-position-main">
-                {{ resume[4].position }}
-              </div>
-              <div class="info-text-position-english">
-                {{ resume[4].positionE }}
-              </div>
-            </div>
-            <div class="info-text-position">
-              <div class="info-text-position-main">
-                {{ resume[5].position }}
-              </div>
-              <div class="info-text-position-english">
-                {{ resume[5].positionE }}
+                {{ el.positionE }}
               </div>
             </div>
             <div class="info-text-position pt-3">
@@ -118,8 +83,6 @@
   }
 }
 .info {
-  // width: 360px;
-  // margin: 0 0 32px 0;
   &-text {
     color: $mainColor;
 
@@ -195,12 +158,6 @@ export default {
       type: String,
       require: true,
     },
-  },
-  data() {
-    return {};
-  },
-  created() {
-    // console.log("author");
   },
 };
 </script>

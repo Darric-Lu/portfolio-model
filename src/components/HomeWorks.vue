@@ -35,6 +35,7 @@
         </div>
       </router-link>
     </div>
+
     <!-- Modal -->
     <div
       class="modal fade"
@@ -106,11 +107,11 @@
 
 .works-wrapper {
   display: grid;
-  width: 90vw;
-  margin: 2vw auto;
-  align-items: center;
   grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
+  align-items: center;
+  width: 90vw;
+  margin: 2vw auto;
 
   .work {
     border-radius: 8px;
@@ -246,9 +247,6 @@ export default {
   },
 
   methods: {
-    fecthWorksData() {
-      this.works = [...works];
-    },
     modalImageChange(workId) {
       this.modal.number = "";
       this.modal.image = "";
@@ -259,9 +257,7 @@ export default {
         }
       });
       this.changeNext(workId);
-      console.log("next", this.modal.next);
       this.changePrevious(workId);
-      console.log("previous", this.modal.previous);
     },
     changeNext(workId) {
       if (Number(workId) === this.works.length) {

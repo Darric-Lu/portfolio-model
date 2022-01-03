@@ -25,20 +25,20 @@
 .top-works {
   display: flex;
   flex-flow: row wrap;
-  margin: 32px auto;
   width: 90vw;
+  margin: 32px auto;
 
   .work {
     padding: 8px;
 
     .img_wrapper {
+      display: flex;
+      justify-content: center;
       border-radius: 8px;
       -webkit-box-shadow: 0px 1px 5px 0px rgba(87, 87, 87, 0.6);
       -moz-box-shadow: 0px 1px 5px 0px rgba(87, 87, 87, 0.6);
       box-shadow: 0px 1px 5px 0px rgba(87, 87, 87, 0.6);
       overflow: hidden;
-      display: flex;
-      justify-content: center;
 
       .img {
         object-fit: cover;
@@ -68,6 +68,7 @@
 <script>
 import AOS from "aos";
 import "aos/dist/aos.css";
+
 export default {
   name: "home-top-Works",
   props: {

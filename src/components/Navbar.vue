@@ -34,7 +34,6 @@
             <span> About Me </span>
           </div>
         </a>
-        <!-- </ui> -->
       </div>
     </div>
   </div>
@@ -42,11 +41,11 @@
 
 <style lang="scss" scoped>
 @import "../assets/scss/reset.scss";
-@import "../assets/scss/helper.scss";
 @import "../assets/scss/main.scss";
+@import "../assets/scss/helper.scss";
 
 .header {
-  width: 100%;
+  // width: 100%;
   height: 60px;
   position: relative;
   z-index: 999;
@@ -70,6 +69,10 @@
     transition: opacity 0.2s ease-out 0.15s;
     opacity: 1;
     display: block;
+  }
+
+  .top-toggle:checked ~ .top-toggle-label {
+    align-items: flex-start;
   }
 
   .top-list {
@@ -199,7 +202,6 @@
       a {
         .item-content {
           display: block;
-          margin: 0;
           opacity: 1;
           background-color: $topBarBackgroundColor;
           height: 60px;
@@ -217,7 +219,7 @@ export default {
   name: "navbar",
   data() {
     return {
-      toggle: false,
+      toggle: "",
     };
   },
   methods: {
@@ -235,7 +237,7 @@ export default {
             document.scrollingElement.scrollHeight;
         }, 150);
       }
-      this.closeTop();
+      this.closeTop(); //關閉選單
     },
   },
 };
